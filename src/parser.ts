@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
+import { ModelType } from './types/ModelType';
 
 // Função para ler e retornar o conteúdo do arquivo schema-fragment.prisma
 export const readSchema = (filePath: string) => {
@@ -19,7 +20,7 @@ export const parseSchema = (schemaContent: string) => {
 
     const fields = match[2]
       .split('\n')
-      .map((line) => line.trim())
+      .map((line) => line.trim().replace(/\s+/g, ' '))
       .filter((line) => line && !line.startsWith('//'))
       .map((line) => {
         const [fieldName, fieldType] = line.split(' ');

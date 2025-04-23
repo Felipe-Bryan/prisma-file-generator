@@ -5,7 +5,7 @@ import path from 'path';
 interface GenerateProps {
   modelName: string;
   templateContent: string;
-  fileFolder: 'repositories' | 'controllers' | 'routes' | 'useCases';
+  fileFolder: 'repositories' | 'controllers' | 'routes' | 'useCases' | 'types';
   fileName: string;
 }
 
@@ -19,14 +19,6 @@ function compileTemplate(props: GenerateProps) {
 
 export function generateContent(props: GenerateProps) {
   const content = compileTemplate(props);
-
-  // let fileName = '';
-
-  // if (props.fileFolder === 'useCases') {
-  //   fileName = `${props.fileName}-${props.modelName}-useCase`;
-  // } else {
-  //   fileName = `${props.modelName}.${props.fileName}`;
-  // }
 
   const outputPath = path.join(
     __dirname,

@@ -9,6 +9,7 @@ import { deleteUsecaseTemplate } from './templates/delete-usecaseTemplate';
 import { getByIdUseCaseTemplate } from './templates/get-by-id-usecaseTemplate';
 import { listUsecaseTemplate } from './templates/list-usecaseTemplate';
 import { updateUsecaseTemplate } from './templates/update-usecaseTemplate';
+import { interfaceTemplate } from './templates/interfaceTemplate';
 
 const generateFiles = (schemaFile: string) => {
   const schemaContent = readSchema(schemaFile);
@@ -69,6 +70,13 @@ const generateFiles = (schemaFile: string) => {
       templateContent: updateUsecaseTemplate,
       fileFolder: `useCases`,
       fileName: `update-${model.modelName}.useCase`,
+    });
+
+    generateContent({
+      modelName: model.modelName,
+      templateContent: interfaceTemplate(model.modelName, model.fields),
+      fileFolder: `types`,
+      fileName: `${model.modelName}Type`,
     });
   });
 };
