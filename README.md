@@ -15,6 +15,7 @@ Com apenas um comando, você obtém:
 - Controllers
 - Rotas
 - Usecases (Create, List, Get by ID, Update, Delete)
+- Modelo de tipo para o front-end
 
 ---
 
@@ -35,6 +36,7 @@ npm install
 ---
 
 ## ⚙️ Como Usar
+
 Certifique-se de ter um arquivo schema-fragment.prisma com as informações da entidade.
 
 Execute o gerador com o comando:
@@ -64,7 +66,9 @@ generated/
       delete-entity.usecase.ts
       get-entity-by-id.usecase.ts
       list-entity.usecase.ts
-      update-entity.usecase.ts  
+      update-entity.usecase.ts
+    types/
+      entityType.ts
 ```
 
 ---
@@ -78,11 +82,11 @@ model user {
     email String @unique
 }
 ```
+
 O gerador criará automaticamente todos os arquivos baseados nessa estrutura.
 
 ---
 
 ## 🧩 Personalização
+
 Você pode editar os templates localizados em src/templates para adaptar os arquivos gerados ao seu estilo ou padrão de projeto.
-
-
