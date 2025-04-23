@@ -10,14 +10,15 @@ import { getByIdUseCaseTemplate } from './templates/get-by-id-usecaseTemplate';
 import { listUsecaseTemplate } from './templates/list-usecaseTemplate';
 import { updateUsecaseTemplate } from './templates/update-usecaseTemplate';
 import { interfaceTemplate } from './templates/interfaceTemplate';
+import { configs } from './configs';
 
-const generateFiles = (schemaFile: string) => {
+export const generateFiles = (schemaFile: string) => {
   const schemaContent = readSchema(schemaFile);
   const models = parseSchema(schemaContent);
 
   models.forEach((model) => {
     generateContent({
-      modelName: model.modelName,
+      modelName: model.modelName.charAt(0).toLowerCase() + model.modelName.slice(1),
       templateContent: repositoryTemplate,
       fileFolder: 'repositories',
       fileName: `${model.modelName}.repository`,
@@ -81,6 +82,6 @@ const generateFiles = (schemaFile: string) => {
   });
 };
 
-const schemaFilePath = path.join(__dirname, '../schema-fragment.prisma');
+const schemaFilePath = path.join(__dirname, configs.schemaPath);
 
 generateFiles(schemaFilePath);

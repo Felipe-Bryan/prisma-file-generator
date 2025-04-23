@@ -1,15 +1,18 @@
 {
   "name": "prisma-file-generator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "generate": "ts-node src/generate.ts",
-    "build": "tsc"
+    "generate": "ts-node src/generate.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "prisma",
+    "api",
+    "generator"
+  ],
+  "author": "Felipe Bryan",
+  "license": "MIT",
+  "description": "Gera arquivos de API com base no schema Prisma",
   "dependencies": {
     "@prisma/client": "^6.6.0",
     "fs-extra": "^11.3.0",

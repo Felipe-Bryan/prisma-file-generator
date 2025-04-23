@@ -1,6 +1,7 @@
 import Handlebars from 'handlebars';
 import fs from 'fs-extra';
 import path from 'path';
+import { configs } from '../configs';
 
 interface GenerateProps {
   modelName: string;
@@ -22,7 +23,7 @@ export function generateContent(props: GenerateProps) {
 
   const outputPath = path.join(
     __dirname,
-    `../../generated/${props.modelName}/${props.fileFolder}/${props.fileName}.ts`
+    `${configs.outputPath}/${props.modelName}/${props.fileFolder}/${props.fileName}.ts`
   );
 
   fs.outputFileSync(outputPath, content);

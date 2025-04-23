@@ -1,6 +1,5 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { ModelType } from './types/ModelType';
 
 // Função para ler e retornar o conteúdo do arquivo schema-fragment.prisma
 export const readSchema = (filePath: string) => {

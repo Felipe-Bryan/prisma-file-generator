@@ -15,7 +15,7 @@ Com apenas um comando, você obtém:
 - Controllers
 - Rotas
 - Usecases (Create, List, Get by ID, Update, Delete)
-- Modelo de tipo para o front-end
+- Modelo de tipagem para o front-end
 
 ---
 
@@ -61,14 +61,14 @@ generated/
       entity.repository.ts
     routes/
       entity.routes.ts
+    types/
+      entityType.ts
     useCases/
       create-entity.usecase.ts
       delete-entity.usecase.ts
       get-entity-by-id.usecase.ts
       list-entity.usecase.ts
       update-entity.usecase.ts
-    types/
-      entityType.ts
 ```
 
 ---
@@ -90,3 +90,5 @@ O gerador criará automaticamente todos os arquivos baseados nessa estrutura.
 ## 🧩 Personalização
 
 Você pode editar os templates localizados em src/templates para adaptar os arquivos gerados ao seu estilo ou padrão de projeto.
+
+Você também pode alterar os diretórios no arquivo `configs.ts`

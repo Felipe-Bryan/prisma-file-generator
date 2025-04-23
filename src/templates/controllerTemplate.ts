@@ -1,8 +1,8 @@
-export const controllerTemplate = `import { Create{{modelName}}UseCase } from '../usecases/create-{{modelName}}.usecase';
-import { Delete{{modelName}}UseCase } from '../usecases/delete-{{modelName}}.usecase';
-import { Get{{modelName}}ByIdUseCase } from '../usecases/get-{{modelName}}-by-id.usecase';
-import { List{{modelName}}sUseCase } from '../usecases/list-{{modelName}}s.usecase';
-import { Update{{modelName}}UseCase } from '../usecases/update-{{modelName}}.usecase';
+export const controllerTemplate = `import { Create{{modelName}}UseCase } from '../useCases/create-{{modelName}}.useCase';
+import { Delete{{modelName}}UseCase } from '../useCases/delete-{{modelName}}.useCase';
+import { Get{{modelName}}ByIdUseCase } from '../useCases/get-{{modelName}}-by-id.useCase';
+import { List{{modelName}}sUseCase } from '../useCases/list-{{modelName}}s.useCase';
+import { Update{{modelName}}UseCase } from '../useCases/update-{{modelName}}.useCase';
 import { Request, Response } from 'express';
 import { ApiResponse } from '../../../shared/util/http-response.adapter';
 import { {{modelName}}, Prisma } from '@prisma/client';
