@@ -166,7 +166,7 @@ Os arquivos gerados devem ser colados dentro da pasta `modules/` da API Prisma.<
 Na pasta da API, o comando para atualizar o prisma client deve ser rodado sempre que houver alteração no arquivo `schema.prisma` 
 
 ```bash
-npm prisma generate
+npx prisma generate
 ```
 
 ---
