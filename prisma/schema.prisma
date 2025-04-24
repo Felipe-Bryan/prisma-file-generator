@@ -1,5 +1,39 @@
-model user {
-    id    String @id @default(cuid())
-    name  String
-    email String @unique
+model User {
+    id         Int          @id @default(autoincrement())
+    email      String       @unique
+    profile    Profile?
+    posts      Post[]
+    courses    Course[]
+    Enrollment Enrollment[] // ignore
 }
+
+model Profile {
+    id     Int    @id @default(autoincrement())
+    bio    String
+    userId Int    @unique
+    user   User   @relation(fields: [userId], references: [id])
+}
+
+model Post {
+    id     Int    @id @default(autoincrement())
+    title  String
+    userId Int
+    author User   @relation(fields: [userId], references: [id])
+}
+
+model Course {
+    id         Int          @id @default(autoincrement())
+    title      String
+    students   User[]
+    Enrollment Enrollment[] // ignore
+}
+
+model Enrollment {
+    studentId Int
+    courseId  Int
+    student   User   @relation(fields: [studentId], references: [id])
+    course    Course @relation(fields: [courseId], references: [id])
+
+    @@id([studentId, courseId])
+}
+// ignore

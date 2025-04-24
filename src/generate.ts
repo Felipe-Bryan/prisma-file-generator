@@ -16,6 +16,11 @@ export const generateFiles = (schemaFile: string) => {
   const schemaContent = readSchema(schemaFile);
   const models = parseSchema(schemaContent);
 
+  if (!models || models.length === 0) {
+    console.log('No models found in the schema file.');
+    return;
+  }
+
   models.forEach((model) => {
     generateContent({
       modelName: model.modelName,

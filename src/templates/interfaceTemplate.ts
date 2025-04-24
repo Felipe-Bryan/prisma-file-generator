@@ -9,33 +9,16 @@ export function interfaceTemplate(modelName: string, fields: { fieldName: string
     const isOptional = field.fieldType.includes('?');
     const isNullable = field.fieldType.includes('| null') || field.fieldType.includes('| undefined');
 
-    if (fieldType === 'datetime') {
-      fieldType = 'Date';
-    } else if (fieldType === 'int') {
-      fieldType = 'number';
-    } else if (fieldType === 'decimal') {
-      fieldType = 'number';
-    } else if (fieldType === 'bigint') {
-      fieldType = 'number';
-    } else if (fieldType === 'float') {
-      fieldType = 'number';
-    } else if (fieldType === 'int[]') {
-      fieldType = 'number[]';
-    } else if (fieldType === 'decimal[]') {
-      fieldType = 'number[]';
-    } else if (fieldType === 'bigint[]') {
-      fieldType = 'number[]';
-    } else if (fieldType === 'float[]') {
-      fieldType = 'number[]';
-    }
+    let baseType = fieldType.replace(/[\[\]?]/g, '');
 
-    if (isArray) {
-      line += `\n  ${fieldName}: ${fieldType}${isOptional ? ' | undefined' : ''}[];`;
-    } else if (isNullable) {
-      line += `\n  ${fieldName}: ${fieldType}${isOptional ? ' | undefined' : ''};`;
-    } else {
-      line += `\n  ${fieldName}: ${fieldType}${isOptional ? ' | undefined' : ''};`;
-    }
+    if (baseType === 'datetime') baseType = 'Date';
+    else if (['int', 'decimal', 'bigint', 'float'].includes(baseType)) baseType = 'number';
+
+    let finalType = isArray ? `${baseType}[]` : baseType;
+    if (isOptional) finalType += ' | undefined';
+    if (isNullable) finalType += ' | null';
+
+    line += `\n  ${fieldName}: ${finalType};`;
   });
 
   line += '\n}';

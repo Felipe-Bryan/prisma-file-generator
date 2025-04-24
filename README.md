@@ -37,7 +37,7 @@ npm install
 
 ## ⚙️ Como Usar
 
-Certifique-se de ter um arquivo schema-fragment.prisma com as informações da entidade.
+Certifique-se de ter um arquivo `schema.prisma` com as informações da entidade.
 
 Execute o gerador com o comando:
 
@@ -45,7 +45,16 @@ Execute o gerador com o comando:
 npm run generate
 ```
 
-Os arquivos serão gerados na pasta `generated/{entity}` com a estrutura completa.<br>
+As linhas com `@relation` e iniciadas em `@@` serão ignoradas para a geração do arquivo de tipagem, caso queira que alguma outra linha seja ignorada pelo gerador adicione um comentário `// ignore` na frente da linha.
+
+Para ignorar um model completo adicione `// ignore` após o fechamento da ultima chave.
+
+O arquivo `schema.prisma` contém todos os exemplos.
+A pasta `src/generated` contém os arquivos gerados de acordo com a configuração atual.
+
+---
+
+Os arquivos serão gerados na pasta `src/generated/{entity}` com a estrutura completa.<br>
 Os arquivos gerados devem ser colados dentro da pasta `modules/` da API Prisma.
 
 O comando para atualizar o prisma client deve ser rodado sempre que houver alteração no arquivo `schema.prisma`
