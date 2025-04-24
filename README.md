@@ -49,7 +49,7 @@ As linhas com `@relation` e iniciadas em `@@` serão ignoradas para a geração 
 
 Para ignorar um model completo adicione `// ignore` após o fechamento da ultima chave.
 
-O arquivo `schema.prisma` contém todos os exemplos.
+O arquivo `schema.prisma` contém todos os exemplos.<br>
 A pasta `src/generated` contém os arquivos gerados de acordo com a configuração atual.
 
 ---
