@@ -18,8 +18,11 @@ export const generateFiles = (schemaFile: string) => {
 
   models.forEach((model) => {
     generateContent({
-      modelName: model.modelName.charAt(0).toLowerCase() + model.modelName.slice(1),
-      templateContent: repositoryTemplate,
+      modelName: model.modelName,
+      templateContent: repositoryTemplate(
+        model.modelName,
+        model.modelName.charAt(0).toLowerCase() + model.modelName.slice(1)
+      ),
       fileFolder: 'repositories',
       fileName: `${model.modelName}.repository`,
     });
