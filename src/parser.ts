@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-// Função para ler e retornar o conteúdo do arquivo schema-fragment.prisma
+// Função para ler e retornar o conteúdo do arquivo schema.prisma
 export const readSchema = (filePath: string) => {
   const schemaContent = fs.readFileSync(filePath, 'utf-8');
 
